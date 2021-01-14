@@ -38,6 +38,8 @@ class AutoyoulaSpider(scrapy.Spider):
         'description':
         lambda response: response.css(
             'div.AdvertCard_descriptionInner__KnuRi::text').get(),
+        'seller_id':
+        '',
     }
 
     def parse(self, response, **kwargs):
@@ -78,7 +80,6 @@ class AutoyoulaSpider(scrapy.Spider):
                 print(1)
                 continue
 
-    @staticmethod
     def gen_task(response, link_list, callback):
         for link in link_list:
             yield response.follow(link.attrib["href"], callback=callback)
