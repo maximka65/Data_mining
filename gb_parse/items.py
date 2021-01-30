@@ -5,19 +5,13 @@
 
 import scrapy
 import time
-from itemloaders.processors import MapCompose
+from itemloaders.processors import MapCompose, Join
 
 
-class YoulaParseItem(scrapy.Item):
-    _id = scrapy.Field()
-    title = scrapy.Field()
-    images = scrapy.Field()
-    description = scrapy.Field()
-    url = scrapy.Field()
-    author = scrapy.Field()
-    specifications = scrapy.Field()
-    price = scrapy.Field()
-    test = scrapy.Field()
+class GbParseItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    pass
 
 class HhVacancyItem(scrapy.Item):
     _id = scrapy.Field()
