@@ -70,6 +70,7 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
     'gb_parse.pipelines.GbParsePipeline': 300,
     'gb_parse.pipelines.MongoSavePipeline': 200,
+    #'gb_parse.pipelines.GbImagePipeline': 100,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

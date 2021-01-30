@@ -6,19 +6,25 @@ from scrapy.settings import Settings
 from gb_parse.spiders.autoyoula import AutoyoulaSpider
 from gb_parse.spiders.hhru import HhruSpider
 from gb_parse.spiders.instagram import InstagramSpider
+from gb_parse.spiders.instagram_users import InstagramUsersSpider
 
 
 if __name__ == '__main__':
     dotenv.load_dotenv('../.env')
-    hash_tags = ['qwertyrc', 'qwertart']
+    #hash_tags = ['qwertyrc', 'qwertart']
+    users = ['lenochka_kuznecova_', 'elkuznetsova878']
     tasks = []
     crawler_settings = Settings()
     crawler_settings.setmodule('gb_parse.settings')
     crawler_process = CrawlerProcess(settings=crawler_settings)
     #crawler_process.crawl(AutoyoulaSpider)
     #crawler_process.crawl(HhruSpider)
-    crawler_process.crawl(InstagramSpider,
-                     start_hash_tags=hash_tags,
+    #crawler_process.crawl(InstagramSpider,
+    #                 start_hash_tags=hash_tags,
+    #                 login=os.getenv('INST_LOGIN'),
+    #                 password=os.getenv('INST_PSWD'))
+    crawler_process.crawl(InstagramUsersSpider,
+                     list_users=users,
                      login=os.getenv('INST_LOGIN'),
                      password=os.getenv('INST_PSWD'))
     crawler_process.start()

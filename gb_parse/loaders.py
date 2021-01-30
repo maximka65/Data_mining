@@ -4,7 +4,7 @@ from scrapy import Selector
 from scrapy.loader import ItemLoader
 from itemloaders.processors import TakeFirst, MapCompose, Join
 from .items import YoulaParseItem, HhVacancyItem, HhCompanyItem
-from .items import InstagramHashtagItem, InstagramHashtagMediaItem
+from .items import InstagramHashtagItem, InstagramHashtagMediaItem, InstagramUsersItem
 
 
 def clear_price(item: str):
@@ -71,3 +71,7 @@ class InstagramHashtagLoader(ItemLoader):
 class InstagramHashtagMediaLoader(ItemLoader):
     default_item_class = InstagramHashtagMediaItem
     default_output_processor = TakeFirst()
+
+class InstagramUsersItemLoader(ItemLoader):
+    default_item_class = InstagramUsersItem
+    default_output_processor = Join()
